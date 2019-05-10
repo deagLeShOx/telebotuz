@@ -1,1 +1,1 @@
-web: python3 file.py
+web: node index.js

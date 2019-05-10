@@ -1,3 +1,4 @@
+import logging
 import telebot
 import re
 import math
@@ -18,17 +19,17 @@ def start(m):
 def name(m):
     markup = types.ReplyKeyboardRemove(selective=False)
     if m.text == 'Калькулятор':
-        bot.send_message(m.chat.id, '**Вы в режиме Калькулятор**', parse_mode= 'Markdown', reply_markup=markup)
+        bot.send_message(m.chat.id, '`Вы в режиме Калькулятор`', parse_mode= 'Markdown', reply_markup=markup)
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
         keyboard.add(*[types.KeyboardButton(name) for name in ['Назад']])
         #markup = types.ForceReply(selective=False)
         msg = bot.send_message(m.chat.id, 'Введите арифметическое выражение:', reply_markup=keyboard)
         bot.register_next_step_handler(msg, calculator) 
     elif m.text == 'Конвертер':
-        bot.send_message(m.chat.id, '**Вы в режиме Конвертер**', parse_mode= 'Markdown', reply_markup=markup)
+        bot.send_message(m.chat.id, '`Вы в режиме Конвертер`', parse_mode= 'Markdown', reply_markup=markup)
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
         keyboard.add(*[types.KeyboardButton(name) for name in ['2 ➝ 10', '10 ➝ 2', '2 ➝ 16', '16 ➝ 2', '10 ➝ 16', '16 ➝ 10','2 ➝ 8', '8 ➝ 2', '10 ➝ 8', '8 ➝ 10', '8 ➝ 16', '16 ➝ 8', "Назад" ]])
-        msg = bot.send_message(m.chat.id, 'Выберите режим', reply_markup=keyboard)
+        msg = bot.send_message(m.chat.id, 'Выберите режим конвертации', reply_markup=keyboard)
         bot.register_next_step_handler(msg,convert)
 
 
@@ -37,7 +38,6 @@ def name(m):
 #10 format (int (msg), "b")
 #16 format (int (msg), '02x')
 #8 format (int (m.text, 8), "b")
-
 
 # 2 ➝ 10
 def dvds(m):
@@ -53,6 +53,7 @@ def dvds(m):
     markup = types.ForceReply(selective=False)
     msg = bot.send_message(m.chat.id, 'Введите число в двоичной системе:', reply_markup=markup)
     bot.register_next_step_handler(msg, dvds)
+
 #'10 ➝ 2'
 def dsdv(m):
 
@@ -67,6 +68,7 @@ def dsdv(m):
     markup = types.ForceReply(selective=False)
     msg = bot.send_message(m.chat.id, 'Введите число в десятичной системе:', reply_markup=markup)
     bot.register_next_step_handler(msg, dsdv)
+
 #'2 ➝ 16'
 def dvsh(m):
 
@@ -137,6 +139,7 @@ def dvvs(m):
     msg = bot.send_message(m.chat.id, c)
     markup = bot.send_message(m.chat.id, 'Введите число в двоичной системе', reply_markup=markup)
     bot.register_next_step_handler(msg, dvvs)
+
 #'8 ➝ 2'
 def vsdv(m):
     if m.text == 'Назад':
@@ -149,6 +152,7 @@ def vsdv(m):
     msg = bot.send_message(m.chat.id, c)
     markup = bot.send_message(m.chat.id, 'Введите число в восьмеричной системе', reply_markup=markup)
     bot.register_next_step_handler(msg, vsdv)
+
 #'10 ➝ 8'
 def dsvs(m):
     if m.text == 'Назад':
@@ -161,6 +165,7 @@ def dsvs(m):
     msg = bot.send_message(m.chat.id, c)
     markup = bot.send_message(m.chat.id, 'Введите число в десятичной системе', reply_markup=markup)
     bot.register_next_step_handler(msg, dsvs)
+
 #'8 ➝ 10'
 def vsds(m):
     if m.text == 'Назад':
@@ -173,6 +178,7 @@ def vsds(m):
     msg = bot.send_message(m.chat.id, c)
     markup = bot.send_message(m.chat.id, 'Введите число в восьмеричной системе', reply_markup=markup)
     bot.register_next_step_handler(msg, vsds)
+
 #'8 ➝ 16'
 def vssh(m):
     if m.text == 'Назад':
@@ -185,6 +191,7 @@ def vssh(m):
     msg = bot.send_message(m.chat.id, c)
     markup = bot.send_message(m.chat.id, 'Введите число в восьмеричной системе', reply_markup=markup)
     bot.register_next_step_handler(msg, vssh)
+
 #'16 ➝ 8'
 def shvs(m):
     if m.text == 'Назад':
@@ -197,6 +204,7 @@ def shvs(m):
     msg = bot.send_message(m.chat.id, c)
     markup = bot.send_message(m.chat.id, 'Введите число в шестнадцатеричной системе', reply_markup=markup)
     bot.register_next_step_handler(msg, shvs)
+
 def back(m):
     if m.text == 'Назад':
         start(m)
@@ -221,11 +229,10 @@ def calculator(m):
     bot.register_next_step_handler(msg, calculator)
 
 def convert(m):
-
     if m.text == '2 ➝ 10':
         markup = types.ForceReply(selective=False)
-        msg = bot.send_message(m.chat.id, 'Введите число в двоичной системе:', reply_markup=markup)
-        bot.register_next_step_handler(msg, dvds) 
+        msg = bot.send_message(m.chat.id, 'Введите число в двоичной системе:', reply_markup=keyboard)
+        bot.register_next_step_handler(msg, dvds)
     elif m.text == '10 ➝ 2':
         markup = types.ForceReply(selective=False)
         msg = bot.send_message(m.chat.id, 'Введите число в десятичной системе:', reply_markup=markup)
