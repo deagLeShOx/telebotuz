@@ -1,1 +1,1 @@
-bot: python3 file.py
+web: python3 file.py

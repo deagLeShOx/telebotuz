@@ -18,14 +18,14 @@ def start(m):
 def name(m):
     markup = types.ReplyKeyboardRemove(selective=False)
     if m.text == 'Калькулятор':
-        bot.send_message(m.chat.id, 'Вы в режиме Калькулятор', reply_markup=markup)
+        bot.send_message(m.chat.id, '**Вы в режиме Калькулятор**', parse_mode= 'Markdown', reply_markup=markup)
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
         keyboard.add(*[types.KeyboardButton(name) for name in ['Назад']])
         #markup = types.ForceReply(selective=False)
         msg = bot.send_message(m.chat.id, 'Введите арифметическое выражение:', reply_markup=keyboard)
         bot.register_next_step_handler(msg, calculator) 
     elif m.text == 'Конвертер':
-        bot.send_message(m.chat.id, 'Вы в режиме Конвертер', reply_markup=markup)
+        bot.send_message(m.chat.id, '**Вы в режиме Конвертер**', parse_mode= 'Markdown', reply_markup=markup)
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
         keyboard.add(*[types.KeyboardButton(name) for name in ['2 ➝ 10', '10 ➝ 2', '2 ➝ 16', '16 ➝ 2', '10 ➝ 16', '16 ➝ 10','2 ➝ 8', '8 ➝ 2', '10 ➝ 8', '8 ➝ 10', '8 ➝ 16', '16 ➝ 8', "Назад" ]])
         msg = bot.send_message(m.chat.id, 'Выберите режим', reply_markup=keyboard)
