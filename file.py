@@ -2,6 +2,7 @@ import telebot
 import re
 import math
 import secure
+from lang import gettr, chooselang
 from telebot import types
 from time import sleep
 from enum import Enum
@@ -21,39 +22,35 @@ def start_message(m):
 def send_text(m):
     #markup = types.ReplyKeyboardRemove(selective=False)
     if m.text == 'Uzbek''\U0001F1FA\U0001F1FF':
-        bot.register_next_step_handler(m,startuz)
+        chooselang(m.chat.id, "uz")
     elif m.text == 'Rus''\U0001f1f7\U0001f1fa':
-        bot.register_next_step_handler(m,start)
-def startuz(m):
+        chooselang(m.chat.id, "ru")  
+    keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    keyboard.add(*[types.KeyboardButton(name) for name in [gettr(m.chat.id, 'calc'), gettr(m.chat.id, 'converter')]])
+    msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'langselect'), parse_mode= 'Markdown', reply_markup=keyboard)
+    bot.register_next_step_handler(msg,name)
+
     #Konverter unicod ''\U0001F504'
     #Kalkulyator unicod \U0001F522
-    keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    keyboard.add(*[types.KeyboardButton(name) for name in ['Kalkulyator''\U0001F522', 'Konverter''\U0001F504']])
-    msg = bot.send_message(m.chat.id,'Rejimni tanlang''\U0001F522''\U0001F504', reply_markup=keyboard)
-    bot.register_next_step_handler(msg,nameuz)
-def start(m):
     #Конвертер юникоде \U0001F504
     #Калькулятор юникоде ''\U0001F522''
-    keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    keyboard.add(*[types.KeyboardButton(name) for name in ['Калькулятор''\U0001F522', 'Конвертер''\U0001F504']])
-    msg = bot.send_message(m.chat.id, 'Выберите режим' '\U0001F522''\U0001F504', reply_markup=keyboard)
-    bot.register_next_step_handler(msg,name)
-def nameuz(m):
+    
+def name(m):
     markup = types.ReplyKeyboardRemove(selective=False)
-    if m.text == 'Kalkulyator''\U0001F522':
+    if m.text == gettr(m.chat.id, 'calc'):
         bot.send_message(m.chat.id, '`Siz Kalkulyator rejimidasiz`', parse_mode= 'Markdown', reply_markup=markup)
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
         keyboard.add(*[types.KeyboardButton(name) for name in ['Orqaga']])
         #markup = types.ForceReply(selective=False)
         msg = bot.send_message(m.chat.id, 'Arifmetik amalni kiriting:', reply_markup=keyboard)
         bot.register_next_step_handler(msg, calculatoruz)
-    elif m.text == 'Konverter''\U0001F504':
+    elif m.text == gettr(m.chat.id, 'converter'):
         bot.send_message(m.chat.id, '`Siz Konverter rejimidasiz`', parse_mode= 'Markdown', reply_markup=markup)
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-        keyboard.add(*[types.KeyboardButton(name) for name in ['2 ➝ 10', '10 ➝ 2', '2 ➝ 16', '16 ➝ 2', '10 ➝ 16', '16 ➝ 10','2 ➝ 8', '8 ➝ 2', '10 ➝ 8', '8 ➝ 10', '8 ➝ 16', '16 ➝ 8', "Назад" ]])
+        keyboard.add(*[types.KeyboardButton(name) for name in ['2 ➝ 10', '10 ➝ 2', '2 ➝ 16', '16 ➝ 2', '10 ➝ 16', '16 ➝ 10','2 ➝ 8', '8 ➝ 2', '10 ➝ 8', '8 ➝ 10', '8 ➝ 16', '16 ➝ 8', "Orqaga" ]])
         msg = bot.send_message(m.chat.id, 'Konvertatsiya qilish turini tanlang', reply_markup=keyboard)
         bot.register_next_step_handler(msg,convertuz)
-def name(m):
+def name123(m):
     markup = types.ReplyKeyboardRemove(selective=False)
     if m.text == 'Калькулятор''\U0001F522':
         bot.send_message(m.chat.id, '`Вы в режиме Калькулятор`', parse_mode= 'Markdown', reply_markup=markup)
