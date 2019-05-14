@@ -1,1 +1,1 @@
-web: node index.js
+bot: python3 file.py

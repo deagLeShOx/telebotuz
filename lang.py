@@ -4,6 +4,9 @@ lang_uz = {}
 lang_ru['calc'] = 'Калькулятор''\U0001F522'
 lang_uz['calc'] = 'Kalkulyator''\U0001F522'
 
+lang_ru['select_type'] = "Выберите режим"
+lang_uz['select_type'] = "Rejimni tanlang"
+
 lang_ru['calc_mod'] = '`Вы в режиме Калькулятор`'
 lang_uz['calc_mod'] = '`Siz Kalkulyator rejimidasiz`'
 
@@ -25,11 +28,27 @@ lang_uz['langselect'] = "Siz *O'zbek tili*ni tanladingiz \nEndi kerakli rejimni 
 lang_ru['back'] = 'Назад'
 lang_uz['back'] = 'Orqaga'
 
-lang_ru['error'] = 'Ошибка'
-lang_ru['error'] = 'Xatolik'
+lang_ru['error'] = "Ошибка"
+lang_ru['error'] = "Xatolik"
 
-lang_ru['dvds'] = 'Введите число в двоичной системе:'
-lang_uz['dvds'] = 'Ikkilik sanoq sistemasida raqam kiriting'
+lang_ru['bin'] = 'Введите число в двоичной системе:'
+lang_uz['bin'] = 'Ikkilik sanoq sistemasida raqam kiriting'
+
+lang_ru['dec'] = 'Введите число в десятичной системе:'
+lang_uz['dec'] = "O'nlik sanoq sistemasida raqam kiriting"
+
+lang_ru['hex'] = 'Введите число в шестнадцатеричной системе'
+lang_uz['hex'] = "O'n oltilik sanoq sistemasida belgi kiriting"
+
+lang_ru['oct'] = 'Введите число в восьмеричной системе'
+lang_uz['oct'] = 'Sakkizlik sanoq sistemasida raqam kiriting'
+
+lang_ru['taboo_char'] = "В выражении присутствуют запрещённые символы"
+lang_uz['taboo_char'] = "Ifodada taqiqlangan belgilar mavjud"
+
+lang_ru['error_exp'] = "Ошибка в выражении"
+lang_uz['error_exp'] = "Ifodada xatolik"
+
 
 ulang = {}
 lang = {}

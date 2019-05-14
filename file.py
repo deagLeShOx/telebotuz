@@ -70,169 +70,171 @@ def dvds(m):
         c = gettr(m.chat.id, 'error')
     msg = bot.send_message(m.chat.id, c)
     markup = types.ForceReply(selective=False)
-    msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'dsdv'), reply_markup=markup)
+    msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'bin'), reply_markup=markup)
     bot.register_next_step_handler(msg, dvds)
 
 #'10 ➝ 2'
 def dsdv(m):
 
-    if m.text == 'Назад':
-        start(m)
+    if m.text == gettr(m.chat.id, 'back'):
+        send_text(m)
         return
     try:
-        c = format(int (m.text), "b")
+        c = str(int(m.text, 2))
     except:
-        c = "Ошибка"
+        c = gettr(m.chat.id, 'error')
     msg = bot.send_message(m.chat.id, c)
     markup = types.ForceReply(selective=False)
-    msg = bot.send_message(m.chat.id, 'Введите число в десятичной системе:', reply_markup=markup)
+    msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'dec'), reply_markup=markup)
     bot.register_next_step_handler(msg, dsdv)
+
 
 #'2 ➝ 16'
 def dvsh(m):
 
-    if m.text == 'Назад':
-        start(m)
+    if m.text == gettr(m.chat.id, 'back'):
+        send_text(m)
         return
     try:
         c = format (int (m.text, 2), '0x') 
     except:
-        c = "Ошибка"
+        c = gettr(m.chat.id, 'error')
     msg = bot.send_message(m.chat.id, c)
     markup = types.ForceReply(selective=False)
-    msg = bot.send_message(m.chat.id, 'Введите число в двоичной системе:', reply_markup=markup)
+    msg = bot.send_message(m.chat.id, 'bin', reply_markup=markup)
     bot.register_next_step_handler(msg, dvsh)
 
 #'16 ➝ 2'   
 def shdv(m):
-    if m.text == 'Назад':
-        start(m)
+    if m.text == gettr(m.chat.id, 'back'):
+        send_text(m)
         return
     try:
         c = format (int (m.text, 16), "b") 
     except:
-        c = "Ошибка"
+        c = gettr(m.chat.id, 'error')
     msg = bot.send_message(m.chat.id, c)
     markup = types.ForceReply(selective=False)
-    msg = bot.send_message(m.chat.id, 'Введите число в шестнадцатеричной системе:', reply_markup=markup)
+    msg = bot.send_message(m.chat.id, 'hex', reply_markup=markup)
     bot.register_next_step_handler(msg, shdv)
 
 #'10 ➝ 16', 
 def dssh(m):
-    if m.text == 'Назад':
-        start(m)
+    if m.text == gettr(m.chat.id, 'back'):
+        send_text(m)
         return
     try:
         c = format (int (m.text), '0x')  
     except:
-        c = "Ошибка"
+        c = gettr(m.chat.id, 'error')
     msg = bot.send_message(m.chat.id, c)
     markup = types.ForceReply(selective=False)
-    msg = bot.send_message(m.chat.id, 'Введите число в десятичной системе:', reply_markup=markup)
+    msg = bot.send_message(m.chat.id, 'dec', reply_markup=markup)
     bot.register_next_step_handler(msg, dssh)
 
 
 #'16 ➝ 10'
 def shds(m):
-    if m.text == 'Назад':
-        start(m)
+    if m.text == gettr(m.chat.id, 'back'):
+        send_text(m)
         return
     try:
         c = str(int (m.text, 16)) 
     except:
-        c = "Ошибка"
+        c = gettr(m.chat.id, 'error')
     msg = bot.send_message(m.chat.id, c)
     markup = types.ForceReply(selective=False)
-    msg = bot.send_message(m.chat.id, 'Введите число в шестнадцатеричной системе:', reply_markup=markup)
+    msg = bot.send_message(m.chat.id, 'hex', reply_markup=markup)
     bot.register_next_step_handler(msg, shds)
 
 #'2 ➝ 8'
 def dvvs(m):
-    if m.text == 'Назад':
-        start(m)
+    if m.text == gettr(m.chat.id, 'back'):
+        send_text(m)
         return
     try:
         c = str(int(m.text, 8))
     except:
-        c = "Ошибка"
+        c = gettr(m.chat.id, 'error')
     msg = bot.send_message(m.chat.id, c)
-    markup = bot.send_message(m.chat.id, 'Введите число в двоичной системе', reply_markup=markup)
+    markup = bot.send_message(m.chat.id, 'bin', reply_markup=markup)
     bot.register_next_step_handler(msg, dvvs)
 
 #'8 ➝ 2'
 def vsdv(m):
-    if m.text == 'Назад':
-        start(m)
+    if m.text == gettr(m.chat.id, 'back'):
+        send_text(m)
         return
     try:
         c = format (int (m.text, 8), "b")
     except:
-        c = "Ошибка"
+        c = gettr(m.chat.id, 'error')
     msg = bot.send_message(m.chat.id, c)
-    markup = bot.send_message(m.chat.id, 'Введите число в восьмеричной системе', reply_markup=markup)
+    markup = bot.send_message(m.chat.id, 'oct', reply_markup=markup)
     bot.register_next_step_handler(msg, vsdv)
 
 #'10 ➝ 8'
 def dsvs(m):
-    if m.text == 'Назад':
-        start(m)
+    if m.text == gettr(m.chat.id, 'back'):
+        send_text(m)
         return
     try:
         c = str (int (m.text, 8))
     except:
-        c = "Ошибка"
+        c = gettr(m.chat.id, 'error')
     msg = bot.send_message(m.chat.id, c)
-    markup = bot.send_message(m.chat.id, 'Введите число в десятичной системе', reply_markup=markup)
+    markup = bot.send_message(m.chat.id, 'dec', reply_markup=markup)
     bot.register_next_step_handler(msg, dsvs)
 
 #'8 ➝ 10'
 def vsds(m):
-    if m.text == 'Назад':
-        start(m)
+    if m.text == gettr(m.chat.id, 'back'):
+        send_text(m)
         return
     try:
         c = str (int (m.text, 8))
     except:
-        c = "Ошибка"
+        c = gettr(m.chat.id, 'error')
     msg = bot.send_message(m.chat.id, c)
-    markup = bot.send_message(m.chat.id, 'Введите число в восьмеричной системе', reply_markup=markup)
+    markup = bot.send_message(m.chat.id, 'oct', reply_markup=markup)
     bot.register_next_step_handler(msg, vsds)
 
 #'8 ➝ 16'
 def vssh(m):
-    if m.text == 'Назад':
-        start(m)
+    if m.text == gettr(m.chat.id, 'back'):
+        send_text(m)
         return
     try:
         c = format (int (m.text, 8), "0x")
     except:
-        c = "Ошибка"
+        c = gettr(m.chat.id, 'error')
     msg = bot.send_message(m.chat.id, c)
-    markup = bot.send_message(m.chat.id, 'Введите число в восьмеричной системе', reply_markup=markup)
+    markup = bot.send_message(m.chat.id, 'oct', reply_markup=markup)
     bot.register_next_step_handler(msg, vssh)
 
 #'16 ➝ 8'
 def shvs(m):
-    if m.text == 'Назад':
-        start(m)
+    if m.text == gettr(m.chat.id, 'back'):
+        send_text(m)
         return
     try:
         c = format (int (m.text, 16), "010")
     except:
-        c = "Ошибка"
+        c = gettr(m.chat.id, 'error')
     msg = bot.send_message(m.chat.id, c)
-    markup = bot.send_message(m.chat.id, 'Введите число в шестнадцатеричной системе', reply_markup=markup)
+    markup = bot.send_message(m.chat.id, 'hex', reply_markup=markup)
     bot.register_next_step_handler(msg, shvs)
 
 def back(m):
     if m.text == gettr(m.chat.id, 'back'):
-        bot.send_message(m.chat.id, gettr(m.chat.id, 'back'))
-        start(m)
+        bot.send_message(m.chat.id, gettr(m.chat.id, ''))
+        send_text(m)
         return
 
 def calculator(m):
-    if m.text == 'Назад':
-        start(m)
+    if m.text == gettr(m.chat.id, 'back'):
+        #bot.send_message(m.chat.id, gettr(m.chat.id, ''))
+        send_text(m)
         return
     s = ""
     try:
@@ -240,227 +242,69 @@ def calculator(m):
         if pattern.match(m.text):
             s = eval(m.text)
         else:
-            s = "В выражении присутствуют запрещённые символы"
+            s = gettr(m.chat.id, 'taboo_char')
     except:
-        s = "Ошибка в выражении"
+        s = gettr(m.chat.id, 'error_exp')
     msg = bot.send_message(m.chat.id, s)
     markup = types.ForceReply(selective=False)
-    msg = bot.send_message(m.chat.id, 'Введите арифметическое выражение:', reply_markup=keyboard)
+    msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'calc_ae'), reply_markup=keyboard)
     bot.register_next_step_handler(msg, calculator)
 
 def convert(m):
     if m.text == '2 ➝ 10':
         markup = types.ForceReply(selective=False)
-        msg = bot.send_message(m.chat.id, 'Введите число в двоичной системе:', reply_markup=markup)
+        msg = bot.send_message(m.chat.id, gettr(m.chat.id,'bin'), reply_markup=markup)
         bot.register_next_step_handler(msg, dvds)
     elif m.text == '10 ➝ 2':
         markup = types.ForceReply(selective=False)
-        msg = bot.send_message(m.chat.id, 'Введите число в десятичной системе:', reply_markup=markup)
+        msg = bot.send_message(m.chat.id, gettr(m.chat.id,'dec'), reply_markup=markup)
         bot.register_next_step_handler(msg, dsdv) 
     elif m.text == '2 ➝ 16':
         markup = types.ForceReply(selective=False)
-        msg = bot.send_message(m.chat.id, 'Введите число в двоичной системе:', reply_markup=markup)
+        msg = bot.send_message(m.chat.id, gettr(m.chat.id,'bin'), reply_markup=markup)
         bot.register_next_step_handler(msg, dvsh)
     elif m.text == '16 ➝ 2':
         markup = types.ForceReply(selective=False)
-        msg = bot.send_message(m.chat.id, 'Введите число в шестнадцатеричной системе:', reply_markup=markup)
+        msg = bot.send_message(m.chat.id, gettr(m.chat.id,'hex'), reply_markup=markup)
         bot.register_next_step_handler(msg, shdv)
     elif m.text == '10 ➝ 16':
         markup = types.ForceReply(selective=False)
-        msg = bot.send_message(m.chat.id, 'Введите число в десятичной системе:', reply_markup=markup)
+        msg = bot.send_message(m.chat.id, gettr(m.chat.id,'dec'), reply_markup=markup)
         bot.register_next_step_handler(msg, dssh)
     elif m.text == '16 ➝ 10':
         markup = types.ForceReply(selective=False)
-        msg = bot.send_message(m.chat.id, 'Введите число в шестнадцатеричной системе:', reply_markup=markup)
+        msg = bot.send_message(m.chat.id, gettr(m.chat.id,'hex'), reply_markup=markup)
         bot.register_next_step_handler(msg, shds)
     elif m.text == '2 ➝ 8':
         markup = types.ForceReply(selective=False)
-        msg = bot.send_message(m.chat.id, 'Введите число в двоичной системе:', reply_markup=markup)
+        msg = bot.send_message(m.chat.id, gettr(m.chat.id,'bin'), reply_markup=markup)
         bot.register_next_step_handler(msg, dvvs)
     elif m.text == '8 ➝ 2':
         markup = types.ForceReply(selective=False)
-        msg = bot.send_message(m.chat.id, 'Введите число в восьмеричной системе:', reply_markup=markup)
+        msg = bot.send_message(m.chat.id, gettr(m.chat.id,'oct'), reply_markup=markup)
         bot.register_next_step_handler(msg, vsdv)
     elif m.text == '8 ➝ 10':
         markup = types.ForceReply(selective=False)
-        msg = bot.send_message(m.chat.id, 'Введите число в восьмеричной системе:', reply_markup=markup)
+        msg = bot.send_message(m.chat.id, gettr(m.chat.id,'oct'), reply_markup=markup)
         bot.register_next_step_handler(msg, vsds)
     elif m.text == '10 ➝ 8':
         markup = types.ForceReply(selective=False)
-        msg = bot.send_message(m.chat.id, 'Введите число в десятичной системе:', reply_markup=markup)
+        msg = bot.send_message(m.chat.id, gettr(m.chat.id,'dec'), reply_markup=markup)
         bot.register_next_step_handler(msg, dsvs)
     elif m.text == '8 ➝ 16':
         markup = types.ForceReply(selective=False)
-        msg = bot.send_message(m.chat.id, 'Введите число в восьмеричной системе:', reply_markup=markup)
+        msg = bot.send_message(m.chat.id, gettr(m.chat.id,'oct'), reply_markup=markup)
         bot.register_next_step_handler(msg, vssh)
     elif m.text == '16 ➝ 8':
         markup = types.ForceReply(selective=False)
-        msg = bot.send_message(m.chat.id, 'Введите число в шестнадцатеричной системе:', reply_markup=markup)
+        msg = bot.send_message(m.chat.id, gettr(m.chat.id,'hex'), reply_markup=markup)
         bot.register_next_step_handler(msg, shvs)
-    elif m.text == 'Назад':
+    elif m.text == 'back':
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
         keyboard.add(*[types.KeyboardButton(name) for name in ['Калькулятор''\U0001F522', 'Конвертер''\U0001F504']])
         msg = bot.send_message(m.chat.id, 'Выберите режим' '\U0001F522''\U0001F504', reply_markup=keyboard)
         bot.register_next_step_handler(msg,name)(msg, back)
 
-
-
-#UZ
-
-#'10 ➝ 2'
-def unik(m):
-
-    if m.text == 'Orqaga':
-        startuz(m)
-        return
-    try:
-        c = format(int (m.text), "b")
-    except:
-        c = "Xatolik"
-    msg = bot.send_message(m.chat.id, c)
-    markup = types.ForceReply(selective=False)
-    msg = bot.send_message(m.chat.id, "O'nlik sanoq sistemasida raqam kiriting", reply_markup=markup)
-    bot.register_next_step_handler(msg, unik)
-
-#'2 ➝ 16'
-def ikuo(m):
-
-    if m.text == 'Orqaga':
-        startuz(m)
-        return
-    try:
-        c = format (int (m.text, 2), '0x') 
-    except:
-        c = "Xatolik"
-    msg = bot.send_message(m.chat.id, c)
-    markup = types.ForceReply(selective=False)
-    msg = bot.send_message(m.chat.id, 'Ikkilik sanoq sistemasida raqam kiriting', reply_markup=markup)
-    bot.register_next_step_handler(msg, ikuo)
-
-#'16 ➝ 2'   
-def uoik(m):
-    if m.text == 'Orqaga':
-        startuz(m)
-        return
-    try:
-        c = format (int (m.text, 16), "b") 
-    except:
-        c = "Xatolik"
-    msg = bot.send_message(m.chat.id, c)
-    markup = types.ForceReply(selective=False)
-    msg = bot.send_message(m.chat.id, "O'n oltilik sanoq sistemasida belgi kiriting", reply_markup=markup)
-    bot.register_next_step_handler(msg, uoik)
-
-#'10 ➝ 16', 
-def unuo(m):
-    if m.text == 'Orqaga':
-        startuz(m)
-        return
-    try:
-        c = format (int (m.text), '0x')  
-    except:
-        c = "Xatolik"
-    msg = bot.send_message(m.chat.id, c)
-    markup = types.ForceReply(selective=False)
-    msg = bot.send_message(m.chat.id, "O'nlik sanoq sistemasida raqam kiriting", reply_markup=markup)
-    bot.register_next_step_handler(msg, unuo)
-
-#'16 ➝ 10'
-def uoun(m):
-    if m.text == 'Orqaga':
-        startuz(m)
-        return
-    try:
-        c = str(int (m.text, 16)) 
-    except:
-        c = "Xatolik"
-    msg = bot.send_message(m.chat.id, c)
-    markup = types.ForceReply(selective=False)
-    msg = bot.send_message(m.chat.id, "O'n oltilik sanoq sistemasida belgi kiriting", reply_markup=markup)
-    bot.register_next_step_handler(msg, uoun)
-
-#'2 ➝ 8'
-def iksa(m):
-    if m.text == 'Orqaga':
-        startuz(m)
-        return
-    try:
-        c = str(int(m.text, 8))
-    except:
-        c = "Xatolik"
-    msg = bot.send_message(m.chat.id, c)
-    markup = bot.send_message(m.chat.id, 'Ikkilik sanoq sistemasida raqam kiriting', reply_markup=markup)
-    bot.register_next_step_handler(msg, iksa)
-
-#'8 ➝ 2'
-def saik(m):
-    if m.text == 'Orqaga':
-        startuz(m)
-        return
-    try:
-        c = format (int (m.text, 8), "b")
-    except:
-        c = "Xatolik"
-    msg = bot.send_message(m.chat.id, c)
-    markup = bot.send_message(m.chat.id, 'Sakkizlik sanoq sistemasida raqam kiriting', reply_markup=markup)
-    bot.register_next_step_handler(msg, saik)
-
-#'10 ➝ 8'
-def unsa(m):
-    if m.text == 'Orqaga':
-        startuz(m)
-        return
-    try:
-        c = str (int (m.text, 8))
-    except:
-        c = "Xatolik"
-    msg = bot.send_message(m.chat.id, c)
-    markup = bot.send_message(m.chat.id, "O'nlik sanoq sistemasida raqam kiriting", reply_markup=markup)
-    bot.register_next_step_handler(msg, unsa)
-
-#'8 ➝ 10'
-def saun(m):
-    if m.text == 'Orqaga':
-        startuz(m)
-        return
-    try:
-        c = str (int (m.text, 8))
-    except:
-        c = "Xatolik"
-    msg = bot.send_message(m.chat.id, c)
-    markup = bot.send_message(m.chat.id, 'Sakkizlik sanoq sistemasida raqam kiriting', reply_markup=markup)
-    bot.register_next_step_handler(msg, saun)
-
-#'8 ➝ 16'
-def sauo(m):
-    if m.text == 'Orqaga':
-        startuz(m)
-        return
-    try:
-        c = format (int (m.text, 8), "0x")
-    except:
-        c = "Xatolik"
-    msg = bot.send_message(m.chat.id, c)
-    markup = bot.send_message(m.chat.id, 'Sakkizlik sanoq sistemasida raqam kiriting', reply_markup=markup)
-    bot.register_next_step_handler(msg, sauo)
-
-#'16 ➝ 8'
-def uosa(m):
-    if m.text == 'Orqaga':
-        startuz(m)
-        return
-    try:
-        c = format (int (m.text, 16), "010")
-    except:
-        c = "Xatolik"
-    msg = bot.send_message(m.chat.id, c)
-    markup = bot.send_message(m.chat.id, "O'n oltilik sanoq sistemasida belgi kiriting", reply_markup=markup)
-    bot.register_next_step_handler(msg, uosa)
-
-def backuz(m):
-    if m.text == 'Orqaga':
-        startuz(m)
-        return
 
 def calculatoruz(m):
     if m.text == 'Orqaga':
@@ -485,58 +329,11 @@ def calculatoruz(m):
 #'Sakkizlik sanoq sistemasida raqam kiriting:'
 #"O'nlik sanoq sistemasida raqam kiriting:"
 #"O'n oltilik sanoq sistemasida belgi kiriting:"
-def convertuz(m):
-    if m.text == '2 ➝ 10':
-        markup = types.ForceReply(selective=False)
-        msg = bot.send_message(m.chat.id, 'Ikkilik sanoq sistemasida raqam kiriting:', reply_markup=markup)
-        bot.register_next_step_handler(msg, ikun)
-    elif m.text == '10 ➝ 2':
-        markup = types.ForceReply(selective=False)
-        msg = bot.send_message(m.chat.id, "O'nlik sanoq sistemasida raqam kiriting:", reply_markup=markup)
-        bot.register_next_step_handler(msg, unik) 
-    elif m.text == '2 ➝ 16':
-        markup = types.ForceReply(selective=False)
-        msg = bot.send_message(m.chat.id, 'Ikkilik sanoq sistemasida raqam kiriting:', reply_markup=markup)
-        bot.register_next_step_handler(msg, ikuo)
-    elif m.text == '16 ➝ 2':
-        markup = types.ForceReply(selective=False)
-        msg = bot.send_message(m.chat.id, "O'n oltilik sanoq sistemasida belgi kiriting:", reply_markup=markup)
-        bot.register_next_step_handler(msg, uoik)
-    elif m.text == '10 ➝ 16':
-        markup = types.ForceReply(selective=False)
-        msg = bot.send_message(m.chat.id, "O'nlik sanoq sistemasida raqam kiriting:", reply_markup=markup)
-        bot.register_next_step_handler(msg, unuo)
-    elif m.text == '16 ➝ 10':
-        markup = types.ForceReply(selective=False)
-        msg = bot.send_message(m.chat.id, "O'n oltilik sanoq sistemasida belgi kiriting:", reply_markup=markup)
-        bot.register_next_step_handler(msg, uoun)
-    elif m.text == '2 ➝ 8':
-        markup = types.ForceReply(selective=False)
-        msg = bot.send_message(m.chat.id, 'Sakkizlik sanoq sistemasida raqam kiriting:', reply_markup=markup)
-        bot.register_next_step_handler(msg, iksa)
-    elif m.text == '8 ➝ 2':
-        markup = types.ForceReply(selective=False)
-        msg = bot.send_message(m.chat.id, 'Sakkizlik sanoq sistemasida raqam kiriting:', reply_markup=markup)
-        bot.register_next_step_handler(msg, saik)
-    elif m.text == '8 ➝ 10':
-        markup = types.ForceReply(selective=False)
-        msg = bot.send_message(m.chat.id, 'Sakkizlik sanoq sistemasida raqam kiriting:', reply_markup=markup)
-        bot.register_next_step_handler(msg, saun)
-    elif m.text == '10 ➝ 8':
-        markup = types.ForceReply(selective=False)
-        msg = bot.send_message(m.chat.id, "O'nlik sanoq sistemasida raqam kiriting:", reply_markup=markup)
-        bot.register_next_step_handler(msg, unsa)
-    elif m.text == '8 ➝ 16':
-        markup = types.ForceReply(selective=False)
-        msg = bot.send_message(m.chat.id, 'Sakkizlik sanoq sistemasida raqam kiriting:', reply_markup=markup)
-        bot.register_next_step_handler(msg, sauo)
-    elif m.text == '16 ➝ 8':
-        markup = types.ForceReply(selective=False)
-        msg = bot.send_message(m.chat.id, "O'n oltilik sanoq sistemasida belgi kiriting:", reply_markup=markup)
-        bot.register_next_step_handler(msg, uosa)
-    elif m.text == 'Orqaga':
-        keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-        keyboard.add(*[types.KeyboardButton(name) for name in ['Kalkulyator''\U0001F522', 'Konverter''\U0001F504']])
-        msg = bot.send_message(m.chat.id, 'Rejimni tanlang''\U0001F522''\U0001F504', reply_markup=keyboard)
-        bot.register_next_step_handler(msg,nameuz)(msg, backuz)
+#def convertuz(m):
+
+  #  elif m.text == 'Orqaga':
+     #   keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+      #  keyboard.add(*[types.KeyboardButton(name) for name in ['Kalkulyator''\U0001F522', 'Konverter''\U0001F504']])
+      # msg = bot.send_message(m.chat.id, 'Rejimni tanlang''\U0001F522''\U0001F504', reply_markup=keyboard)
+       # bot.register_next_step_handler(msg,nameuz)(msg, backuz)
 bot.polling()
