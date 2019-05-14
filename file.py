@@ -38,41 +38,23 @@ def send_text(m):
 def name(m):
     markup = types.ReplyKeyboardRemove(selective=False)
     if m.text == gettr(m.chat.id, 'calc'):
-        bot.send_message(m.chat.id, '`Siz Kalkulyator rejimidasiz`', parse_mode= 'Markdown', reply_markup=markup)
+        bot.send_message(m.chat.id, gettr(m.chat.id, 'calc_mod'), parse_mode= 'Markdown', reply_markup=markup)
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-        keyboard.add(*[types.KeyboardButton(name) for name in ['Orqaga']])
+        keyboard.add(*[types.KeyboardButton(name) for name in [gettr(m.chat.id, 'back')]])
         #markup = types.ForceReply(selective=False)
-        msg = bot.send_message(m.chat.id, 'Arifmetik amalni kiriting:', reply_markup=keyboard)
-        bot.register_next_step_handler(msg, calculatoruz)
-    elif m.text == gettr(m.chat.id, 'converter'):
-        bot.send_message(m.chat.id, '`Siz Konverter rejimidasiz`', parse_mode= 'Markdown', reply_markup=markup)
-        keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-        keyboard.add(*[types.KeyboardButton(name) for name in ['2 ➝ 10', '10 ➝ 2', '2 ➝ 16', '16 ➝ 2', '10 ➝ 16', '16 ➝ 10','2 ➝ 8', '8 ➝ 2', '10 ➝ 8', '8 ➝ 10', '8 ➝ 16', '16 ➝ 8', "Orqaga" ]])
-        msg = bot.send_message(m.chat.id, 'Konvertatsiya qilish turini tanlang', reply_markup=keyboard)
-        bot.register_next_step_handler(msg,convertuz)
-def name123(m):
-    markup = types.ReplyKeyboardRemove(selective=False)
-    if m.text == 'Калькулятор''\U0001F522':
-        bot.send_message(m.chat.id, '`Вы в режиме Калькулятор`', parse_mode= 'Markdown', reply_markup=markup)
-        keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-        keyboard.add(*[types.KeyboardButton(name) for name in ['Назад']])
-        #markup = types.ForceReply(selective=False)
-        msg = bot.send_message(m.chat.id, 'Введите арифметическое выражение:', reply_markup=keyboard)
+        msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'calc_ae'), reply_markup=keyboard)
         bot.register_next_step_handler(msg, calculator)
-    elif m.text == 'Конвертер''\U0001F504':
-        bot.send_message(m.chat.id, '`Вы в режиме Конвертер`', parse_mode= 'Markdown', reply_markup=markup)
+    elif m.text == gettr(m.chat.id, 'converter'):
+        bot.send_message(m.chat.id, gettr(m.chat.id, 'converter_mod'), parse_mode= 'Markdown', reply_markup=markup)
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-        keyboard.add(*[types.KeyboardButton(name) for name in ['2 ➝ 10', '10 ➝ 2', '2 ➝ 16', '16 ➝ 2', '10 ➝ 16', '16 ➝ 10','2 ➝ 8', '8 ➝ 2', '10 ➝ 8', '8 ➝ 10', '8 ➝ 16', '16 ➝ 8', "Назад" ]])
-        msg = bot.send_message(m.chat.id, 'Выберите режим конвертации', reply_markup=keyboard)
-        bot.register_next_step_handler(msg,convert)
-
-
+        keyboard.add(*[types.KeyboardButton(name) for name in ['2 ➝ 10', '10 ➝ 2', '2 ➝ 16', '16 ➝ 2', '10 ➝ 16', '16 ➝ 10','2 ➝ 8', '8 ➝ 2', '10 ➝ 8', '8 ➝ 10', '8 ➝ 16', '16 ➝ 8', gettr(m.chat.id, 'back')]])
+        msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'converter_type'), reply_markup=keyboard)
+        bot.register_next_step_handler(msg, convert)
 # **Системы счисления **
 #2 int(msg, 2)
 #10 format (int (msg), "b")
 #16 format (int (msg), '02x')
 #8 format (int (m.text, 8), "b")
-
 
 #RU
 
@@ -243,7 +225,8 @@ def shvs(m):
     bot.register_next_step_handler(msg, shvs)
 
 def back(m):
-    if m.text == 'Назад':
+    if m.text == gettr(m.chat.id, 'back'):
+        bot.send_message(m.chat.id, gettr(m.chat.id, 'back'))
         start(m)
         return
 
