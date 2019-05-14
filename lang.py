@@ -10,6 +10,14 @@ lang_uz['converter'] = 'Konverter''\U0001F504'
 lang_ru['langselect'] = "Вы выбрали *Русский язык* \nТеперь выберите режим \U0001F522 \U0001F504"
 lang_uz['langselect'] = "Siz *O'zbek tili*ni tanladingiz \nEndi kerakli rejimni tanlang \U0001F522 \U0001F504"
 
+lang_ru['back'] = 'Назад'
+lang_uz['back'] = 'Orqaga'
+
+lang_ru['error'] = 'Ошибка'
+lang_ru['error'] = 'Xatolik'
+
+lang_ru['dvds'] = 'Введите число в двоичной системе:'
+lang_uz['dvds'] = 'Ikkilik sanoq sistemasida raqam kiriting'
 
 ulang = {}
 lang = {}

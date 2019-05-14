@@ -79,16 +79,16 @@ def name123(m):
 # 2 ➝ 10
 def dvds(m):
 
-    if m.text == 'Назад':
-        start(m)
+    if m.text == gettr(m.chat.id, 'back'):
+        send_text(m)
         return
     try:
         c = str(int(m.text, 2))
     except:
-        c = "Ошибка"
+        c = gettr(m.chat.id, 'error')
     msg = bot.send_message(m.chat.id, c)
     markup = types.ForceReply(selective=False)
-    msg = bot.send_message(m.chat.id, 'Введите число в двоичной системе:', reply_markup=markup)
+    msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'dsdv'), reply_markup=markup)
     bot.register_next_step_handler(msg, dvds)
 
 #'10 ➝ 2'
@@ -323,23 +323,6 @@ def convert(m):
 
 
 #UZ
-
-
-
-# 2 ➝ 10
-def ikun(m):
-
-    if m.text == 'Orqaga':
-        startuz(m)
-        return
-    try:
-        c = str(int(m.text, 2))
-    except:
-        c = "Xatolik"
-    msg = bot.send_message(m.chat.id, c)
-    markup = types.ForceReply(selective=False)
-    msg = bot.send_message(m.chat.id, 'Ikkilik sanoq sistemasida raqam kiriting', reply_markup=markup)
-    bot.register_next_step_handler(msg, ikun)
 
 #'10 ➝ 2'
 def unik(m):
