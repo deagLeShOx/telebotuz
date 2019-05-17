@@ -323,18 +323,5 @@ def convert(m):
     elif m.text == gettr(m.chat.id, 'back'):
         send_text(m)
         return
-    #c = ""
-    #try:
-        #pattern = re.compile(" 'bin', 'oct', 'dec', 'hex'")
-        #if pattern.match(m.text):
-         #   c = eval(m.text)
-       # else:
-         #   c = gettr(m.chat.id, 'converter_type')
-   # except:
-       # c = gettr(m.chat.id, 'converter_mod')
-   # msg = bot.send_message(m.chat.id, c)
-   # markup = types.ForceReply(selective=False)
-    #msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'converter_type'), reply_markup=keyboard)
-    #bot.register_next_step_handler(msg, convert)#(msg, name)
 
 bot.polling()
