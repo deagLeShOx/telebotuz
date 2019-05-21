@@ -8,8 +8,6 @@ from time import sleep
 from enum import Enum
 
 bot = telebot.TeleBot(secure.Token)
-#Флаг Узбекистана '\U0001F1FA\U0001F1FF'
-#Флаг России  '\U0001f1f7\U0001f1fa'
 
 @bot.message_handler(commands=['start'])
 def start_message(m):
@@ -18,19 +16,22 @@ def start_message(m):
     msg = bot.send_message(m.chat.id, '\U0001F1FA\U0001F1FF''Tilni tanlang' '\n''\U0001f1f7\U0001f1fa' 'Выберите язык', reply_markup=keyboard)
     bot.register_next_step_handler(msg,send_text)
 
-@bot.message_handler(content_types=['text'])
-def send_text(m):
 
+@bot.message_handler(content_types=['text'])
+def help(m):
+    bot.send_message(m.chat.id, '\U0001f1f7\U0001f1fa''Введите /start для начала\n\U0001F1FA\U0001F1FF''Boshlash uchun /start komandasini yozing')
+
+
+def send_text(m):
     if m.text == 'Uzbek''\U0001F1FA\U0001F1FF':
         chooselang(m.chat.id, "uz")
     elif m.text == 'Rus''\U0001f1f7\U0001f1fa':
         chooselang(m.chat.id, "ru")  
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    keyboard.add(*[types.KeyboardButton(name) for name in [gettr(m.chat.id, 'calc'), gettr(m.chat.id, 'converter'), gettr(m.chat.id, 'trigonometry')]])
+    keyboard.add(*[types.KeyboardButton(name) for name in [gettr(m.chat.id, 'calc'), gettr(m.chat.id, 'converter'), gettr(m.chat.id, 'trigonometry'), gettr(m.chat.id, 'square')]])
     msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'langselect'), parse_mode= 'Markdown', reply_markup=keyboard)
     bot.register_next_step_handler(msg,name)
-    #Конвертер юникоде \U0001F504
-    #Калькулятор юникоде ''\U0001F522''
+
     
 def name(m):
     markup = types.ReplyKeyboardRemove(selective=False)
@@ -52,6 +53,12 @@ def name(m):
         keyboard.add(*[types.KeyboardButton(name) for name in [gettr(m.chat.id, 'cos')]])
         msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'trig_ae'), reply_markup=keyboard)
         bot.register_next_step_handler(msg, trig)
+    elif m.text == gettr(m.chat.id, 'square'):
+        bot.send_message(m.chat.id, gettr(m.chat.id, 'square_ae'), parse_mode= 'Markdown', reply_markup=markup)
+        keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        keyboard.add(*[types.KeyboardButton(name) for name in [gettr(m.chat.id, 'back')]])
+        msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'square_mod'), parse_mode= 'Markdown', reply_markup=keyboard)
+        bot.register_next_step_handler(msg, square)
 
 
 # 2 ➝ 10
@@ -202,13 +209,15 @@ def shvs(m):
     bot.register_next_step_handler(msg, shvs)
 
 
-
+#Назад
 def back(m):
     if m.text == gettr(m.chat.id, 'back'):
         bot.send_message(m.chat.id, gettr(m.chat.id, ''))
         send_text(m)
         return
 
+
+#Калькулятор
 def calculator(m):
     if m.text == gettr(m.chat.id, 'back'):
         send_text(m)
@@ -225,6 +234,8 @@ def calculator(m):
     msg = bot.send_message(m.chat.id, s)
     bot.register_next_step_handler(msg, calculator)
 
+
+#Конвертер
 def convert(m):
     markup = types.ReplyKeyboardRemove(selective=False)
     if m.text == '2 ➝ 10':
@@ -304,7 +315,6 @@ def convert(m):
         return
 
 
-
 #cos Функция
 def cosFoo(m):
     if m.text == gettr(m.chat.id, 'back'):
@@ -317,13 +327,53 @@ def cosFoo(m):
     msg = bot.send_message(m.chat.id, d)
     bot.register_next_step_handler(msg, cosFoo)
 
+#sin Функция
+def sinFoo(m):
+    if m.text == gettr(m.chat.id, 'back'):
+        send_text(m)
+        return
+    try:
+        d = math.sin (float(m.text))
+    except:
+        d = gettr(m.chat.id, 'error_sin')
+    msg = bot.send_message(m.chat.id, d)
+    bot.register_next_step_handler(msg, sinFoo)
+
 def trig(m):
-    markup = types.ReplyKeyboardRemove(selective=True)
     if m.text == gettr(m.chat.id, 'cos'):
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
         keyboard.add(*[types.KeyboardButton(name) for name in [gettr(m.chat.id, 'back')]])
         msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'example_cos'), parse_mode='Markdown', reply_markup=keyboard)
         bot.register_next_step_handler(msg, cosFoo)
 
+
+
+#Квадратное уравнение
+def square(m):
+    if m.text == gettr(m.chat.id, 'back'):
+        send_text(m)
+        return
+    try:
+        a, b, c = map(int, m.text.split())
+        if a == 0:
+            if b == 0 and c != 0:
+                q = gettr(m.chat.id, 'square_no_solutions')
+            else:              
+                q = str(-c/b)
+        else:    
+            D = b*b-4*a*c
+            if D<0:
+                q = gettr(m.chat.id, 'square_no_solutions')
+            elif D == 0:
+                q = str(-b/(2*a))
+            else:
+                dis = math.sqrt(D)
+                x1 = (-b + dis)/(2*a)
+                x2 = (-b - dis)/(2*a)
+                q = "x1 = "+str(x1)+"\nx2 = "+str(x2)
+    except:
+        q = gettr(m.chat.id, 'error_square')
+    msg = bot.send_message(m.chat.id, q)
+    bot.register_next_step_handler(msg, square)
 
 bot.polling()

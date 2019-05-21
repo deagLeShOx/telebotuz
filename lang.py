@@ -1,7 +1,6 @@
 lang_ru = {}
 lang_uz = {}
 
-
 lang_ru['calc'] = 'Калькулятор''\U0001F522'
 lang_uz['calc'] = 'Kalkulyator''\U0001F522'
 
@@ -79,6 +78,25 @@ lang_uz['error_cos'] = "Ifodada xatolik"
 
 lang_ru['example_cos'] = "Пример: 10, 3.5, 3.1415926"
 lang_uz['example_cos'] = "Namuna: 10, 3.5, 3.1415926"
+
+lang_ru['square'] = 'Квадратное уравнение'
+lang_uz['square'] = 'Kvadrat tenglama'
+
+lang_ru['square_ae'] = 'Вы в режиме `Квадратное уравнение`'
+lang_uz['square_ae'] = '`Kvadrat tenglama` rejimidasiz'
+
+lang_ru['square_mod'] = 'Введите коэффициенты уравнения через пробел, отсутствующие коэффициенты замените нулями.''\n_для выхода из режима пишите_   *Назад*'
+lang_uz['square_mod'] = "Tenglama koeffitsientlarini probel orqali kiriting, mavjud bo'lmagan koeffitsientlarni nol bilan almashtiring."'\n_rejimidan chiqish uchun_  *Orqaga*  _yozing_'
+
+lang_ru['example_sqr'] = "*Пример:* Для решения уравнения x^2+2x+4=0 введите `1 2 4`"
+lang_uz['example_sqr'] = "*Namuna:* x^2+2x+4=0 bu ko'rinishdagi tenglama yechimi uchun tenglamani bu ko'rinishda 1 2 4 yozing"
+
+lang_ru['error_square'] = 'Ошибка, введите коэффициенты уравнения в виде `a b c`'
+lang_uz['error_square'] = "Xatolik, tenglama koeffitsientlarini bu ko'rinishda kiriting `a b c` "
+
+lang_ru['square_no_solutions'] = 'Решений нет'
+lang_uz['square_no_solutions'] = "Yechim yo'q"
+
 
 ulang = {}
 lang = {}
