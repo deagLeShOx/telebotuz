@@ -65,8 +65,6 @@ def dvds(m):
     except:
         c = gettr(m.chat.id, 'error')
     msg = bot.send_message(m.chat.id, c)
-    markup = types.ForceReply(selective=False)
-    msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'bin'), parse_mode = 'Markdown', reply_markup=markup)
     bot.register_next_step_handler(msg, dvds)
 
 #'10 ➝ 2'
@@ -80,8 +78,6 @@ def dsdv(m):
     except:
         c = gettr(m.chat.id, 'error')
     msg = bot.send_message(m.chat.id, c)
-    markup = types.ForceReply(selective=False)
-    msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'dec'), parse_mode = 'Markdown', reply_markup=markup)
     bot.register_next_step_handler(msg, dsdv)
 
 #'2 ➝ 16'
@@ -95,8 +91,6 @@ def dvsh(m):
     except:
         c = gettr(m.chat.id, 'error')
     msg = bot.send_message(m.chat.id, c)
-    markup = types.ForceReply(selective=False)
-    msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'bin'), parse_mode = 'Markdown', reply_markup=markup)
     bot.register_next_step_handler(msg, dvsh)
 
 #'16 ➝ 2'   
@@ -109,8 +103,6 @@ def shdv(m):
     except:
         c = gettr(m.chat.id, 'error')
     msg = bot.send_message(m.chat.id, c)
-    markup = types.ForceReply(selective=False)
-    msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'hex'), parse_mode = 'Markdown', reply_markup=markup)
     bot.register_next_step_handler(msg, shdv)
 
 #'10 ➝ 16', 
@@ -123,8 +115,6 @@ def dssh(m):
     except:
         c = gettr(m.chat.id, 'error')
     msg = bot.send_message(m.chat.id, c)
-    markup = types.ForceReply(selective=False)
-    msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'dec'), parse_mode = 'Markdown', reply_markup=markup)
     bot.register_next_step_handler(msg, dssh)
 
 #'16 ➝ 10'
@@ -137,8 +127,6 @@ def shds(m):
     except:
         c = gettr(m.chat.id, 'error')
     msg = bot.send_message(m.chat.id, c)
-    markup = types.ForceReply(selective=False)
-    msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'hex'), parse_mode = 'Markdown', reply_markup=markup)
     bot.register_next_step_handler(msg, shds)
 
 #'2 ➝ 8'
@@ -151,8 +139,6 @@ def dvvs(m):
     except:
         c = gettr(m.chat.id, 'error')
     msg = bot.send_message(m.chat.id, c)
-    markup = types.ForceReply(selective=False)
-    msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'bin'), parse_mode = 'Markdown', reply_markup=markup)
     bot.register_next_step_handler(msg, dvvs)
 
 #'8 ➝ 2'
@@ -165,8 +151,6 @@ def vsdv(m):
     except:
         c = gettr(m.chat.id, 'error')
     msg = bot.send_message(m.chat.id, c)
-    markup = types.ForceReply(selective=False)
-    msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'oct'), parse_mode = 'Markdown', reply_markup=markup)
     bot.register_next_step_handler(msg, vsdv)
 
 #'10 ➝ 8'
@@ -179,8 +163,6 @@ def dsvs(m):
     except:
         c = gettr(m.chat.id, 'error')
     msg = bot.send_message(m.chat.id, c)
-    markup = types.ForceReply(selective=False)
-    msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'dec'), parse_mode = 'Markdown', reply_markup=markup)
     bot.register_next_step_handler(msg, dsvs)
 
 #'8 ➝ 10'
@@ -193,8 +175,6 @@ def vsds(m):
     except:
         c = gettr(m.chat.id, 'error')
     msg = bot.send_message(m.chat.id, c)
-    markup = types.ForceReply(selective=False)
-    msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'oct'), parse_mode = 'Markdown', reply_markup=markup)
     bot.register_next_step_handler(msg, vsds)
 
 #'8 ➝ 16'
@@ -207,8 +187,6 @@ def vssh(m):
     except:
         c = gettr(m.chat.id, 'error')
     msg = bot.send_message(m.chat.id, c)
-    markup = types.ForceReply(selective=False)
-    msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'oct'), parse_mode = 'Markdown', reply_markup=markup)
     bot.register_next_step_handler(msg, vssh)
 
 #'16 ➝ 8'
@@ -221,8 +199,6 @@ def shvs(m):
     except:
         c = gettr(m.chat.id, 'error')
     msg = bot.send_message(m.chat.id, c)
-    #markup = types.ForceReply(selective=False)
-    #msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'hex'), parse_mode = 'Markdown', reply_markup=markup)
     bot.register_next_step_handler(msg, shvs)
 
 
@@ -235,7 +211,6 @@ def back(m):
 
 def calculator(m):
     if m.text == gettr(m.chat.id, 'back'):
-        #bot.send_message(m.chat.id, gettr(m.chat.id, ''))
         send_text(m)
         return
     s = ""
@@ -248,8 +223,6 @@ def calculator(m):
     except:
         s = gettr(m.chat.id, 'error_exp')
     msg = bot.send_message(m.chat.id, s)
-    #markup = types.ForceReply(selective=False)
-    #msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'calc_ae'), reply_markup=markup)
     bot.register_next_step_handler(msg, calculator)
 
 def convert(m):
@@ -342,7 +315,6 @@ def cosFoo(m):
     except:
         d = gettr(m.chat.id, 'error_cos')
     msg = bot.send_message(m.chat.id, d)
-    markup = types.ForceReply(selective=False)
     bot.register_next_step_handler(msg, cosFoo)
 
 def trig(m):
