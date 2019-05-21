@@ -26,7 +26,7 @@ def send_text(m):
     elif m.text == 'Rus''\U0001f1f7\U0001f1fa':
         chooselang(m.chat.id, "ru")  
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    keyboard.add(*[types.KeyboardButton(name) for name in [gettr(m.chat.id, 'calc'), gettr(m.chat.id, 'converter'),]])
+    keyboard.add(*[types.KeyboardButton(name) for name in [gettr(m.chat.id, 'calc'), gettr(m.chat.id, 'converter'), gettr(m.chat.id, 'trigonometry')]])
     msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'langselect'), parse_mode= 'Markdown', reply_markup=keyboard)
     bot.register_next_step_handler(msg,name)
     #Конвертер юникоде \U0001F504
@@ -38,7 +38,6 @@ def name(m):
         bot.send_message(m.chat.id, gettr(m.chat.id, 'calc_mod'), parse_mode= 'Markdown', reply_markup=markup)
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
         keyboard.add(*[types.KeyboardButton(name) for name in [gettr(m.chat.id, 'back')]])
-        #markup = types.ForceReply(selective=False)
         msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'calc_ae'), reply_markup=keyboard)
         bot.register_next_step_handler(msg, calculator)
     elif m.text == gettr(m.chat.id, 'converter'):
@@ -47,6 +46,13 @@ def name(m):
         keyboard.add(*[types.KeyboardButton(name) for name in ['2 ➝ 10', '10 ➝ 2', '2 ➝ 16', '16 ➝ 2', '10 ➝ 16', '16 ➝ 10','2 ➝ 8', '8 ➝ 2', '10 ➝ 8', '8 ➝ 10', '8 ➝ 16', '16 ➝ 8', gettr(m.chat.id, 'back')]])
         msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'converter_type'), reply_markup=keyboard)
         bot.register_next_step_handler(msg, convert)
+    elif m.text == gettr(m.chat.id, 'trigonometry'):
+        bot.send_message(m.chat.id, gettr(m.chat.id, 'trig_mod'), parse_mode= 'Markdown', reply_markup=markup)
+        keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        keyboard.add(*[types.KeyboardButton(name) for name in [gettr(m.chat.id, 'cos')]])
+        msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'trig_ae'), reply_markup=keyboard)
+        bot.register_next_step_handler(msg, trig)
+
 
 # 2 ➝ 10
 def dvds(m):
@@ -127,7 +133,7 @@ def shds(m):
         send_text(m)
         return
     try:
-        c = str(int (m.text, 16)) 
+        c = str(int (m.text, 16))
     except:
         c = gettr(m.chat.id, 'error')
     msg = bot.send_message(m.chat.id, c)
@@ -215,8 +221,8 @@ def shvs(m):
     except:
         c = gettr(m.chat.id, 'error')
     msg = bot.send_message(m.chat.id, c)
-    markup = types.ForceReply(selective=False)
-    msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'hex'), parse_mode = 'Markdown', reply_markup=markup)
+    #markup = types.ForceReply(selective=False)
+    #msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'hex'), parse_mode = 'Markdown', reply_markup=markup)
     bot.register_next_step_handler(msg, shvs)
 
 
@@ -242,8 +248,8 @@ def calculator(m):
     except:
         s = gettr(m.chat.id, 'error_exp')
     msg = bot.send_message(m.chat.id, s)
-    markup = types.ForceReply(selective=False)
-    msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'calc_ae'), reply_markup=keyboard)
+    #markup = types.ForceReply(selective=False)
+    #msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'calc_ae'), reply_markup=markup)
     bot.register_next_step_handler(msg, calculator)
 
 def convert(m):
@@ -323,5 +329,29 @@ def convert(m):
     elif m.text == gettr(m.chat.id, 'back'):
         send_text(m)
         return
+
+
+
+#cos Функция
+def cosFoo(m):
+    if m.text == gettr(m.chat.id, 'back'):
+        send_text(m)
+        return
+    try:
+        d = math.cos (float(m.text))
+    except:
+        d = gettr(m.chat.id, 'error_cos')
+    msg = bot.send_message(m.chat.id, d)
+    markup = types.ForceReply(selective=False)
+    bot.register_next_step_handler(msg, cosFoo)
+
+def trig(m):
+    markup = types.ReplyKeyboardRemove(selective=True)
+    if m.text == gettr(m.chat.id, 'cos'):
+        keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        keyboard.add(*[types.KeyboardButton(name) for name in [gettr(m.chat.id, 'back')]])
+        msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'example_cos'), parse_mode='Markdown', reply_markup=keyboard)
+        bot.register_next_step_handler(msg, cosFoo)
+
 
 bot.polling()

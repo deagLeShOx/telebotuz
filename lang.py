@@ -56,12 +56,29 @@ lang_uz['hex'] = "O'n oltilik sanoq sistemasida belgi kiriting"'\n_Konvertatsiya
 lang_ru['oct'] = 'Введите число в восьмеричной системе''\n_для выхода из режима Конвертации пишите_   *Назад*'
 lang_uz['oct'] = 'Sakkizlik sanoq sistemasida raqam kiriting''\n_Konvertatsiyalash rejimidan chiqish uchun_  *Orqaga*  _yozing_'
 
-lang_ru['taboo_char'] = "В выражении присутствуют запрещённые символы"
-lang_uz['taboo_char'] = "Ifodada taqiqlangan belgilar mavjud"
+lang_ru['taboo_char'] = "В выражении присутствуют запрещённые символы\nПример арифметическое выражение:  `2*8/4+5-9`"
+lang_uz['taboo_char'] = "Ifodada taqiqlangan belgilar mavjud\nArifmetik amal Namuna:  `2*8/4+5-9`"
+
+lang_ru['cos'] = "cos"
+lang_uz['cos'] = "cos"
 
 lang_ru['error_exp'] = "Ошибка в выражении"
 lang_uz['error_exp'] = "Ifodada xatolik"
 
+lang_ru['trigonometry'] = "Тригонометрия"
+lang_uz['trigonometry'] = "Trigonometriya"
+
+lang_ru['trig_ae'] = 'Выберите тригонометрическую функцию'
+lang_uz['trig_ae'] = 'Trigonometrik ifoda kiriting'
+
+lang_ru['trig_mod'] = '`Вы в режиме Тригонометрия`'
+lang_uz['trig_mod'] = '`Trigonometriya rejimidasiz`'
+
+lang_ru['error_cos'] = "Ошибка в выражении"
+lang_uz['error_cos'] = "Ifodada xatolik"
+
+lang_ru['example_cos'] = "Пример: 10, 3.5, 3.1415926"
+lang_uz['example_cos'] = "Namuna: 10, 3.5, 3.1415926"
 
 ulang = {}
 lang = {}
