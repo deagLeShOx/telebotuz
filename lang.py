@@ -1,8 +1,8 @@
 lang_ru = {}
 lang_uz = {}
 
-lang_ru['calc'] = 'Калькулятор''\U0001F522'
-lang_uz['calc'] = 'Kalkulyator''\U0001F522'
+lang_ru['calc'] = 'Калькулятор'
+lang_uz['calc'] = 'Kalkulyator'
 
 lang_ru['select_type'] = "Выберите режим"
 lang_uz['select_type'] = "Rejimni tanlang"
@@ -13,8 +13,8 @@ lang_uz['calc_mod'] = '`Siz Kalkulyator rejimidasiz`'
 lang_ru['calc_ae'] = 'Введите арифметическое выражение:'
 lang_uz['calc_ae'] = 'Arifmetik amalni kiriting:'
 
-lang_ru['converter'] = 'Конвертер''\U0001F504'
-lang_uz['converter'] = 'Konverter''\U0001F504'
+lang_ru['converter'] = 'Конвертер'
+lang_uz['converter'] = 'Konverter'
 
 lang_ru['converter_mod'] = '`Вы в режиме Конвертер`'
 lang_uz['converter_mod'] = '`Siz Konverter rejimidasiz`'
@@ -22,8 +22,8 @@ lang_uz['converter_mod'] = '`Siz Konverter rejimidasiz`'
 lang_ru['converter_type'] = 'Выберите режим конвертации'
 lang_uz['converter_type'] = 'Konvertatsiya qilish turini tanlang'
 
-lang_ru['langselect'] = "Вы выбрали *Русский язык* \nТеперь выберите режим \U0001F522 \U0001F504"
-lang_uz['langselect'] = "Siz *O'zbek tili*ni tanladingiz \nEndi kerakli rejimni tanlang \U0001F522 \U0001F504"
+lang_ru['langselect'] = "Вы выбрали *Русский язык* \nТеперь выберите режим"
+lang_uz['langselect'] = "Siz *Uzbek tili*ni tanladingiz \nEndi kerakli rejimni tanlang"
 
 lang_ru['example_bin'] = 'Пример в двоичной системе: `11111100011`'
 lang_uz['example_bin'] = 'Ikkilik sanoq sistemasida Namuna: `11111100011`'
@@ -61,6 +61,16 @@ lang_uz['taboo_char'] = "Ifodada taqiqlangan belgilar mavjud\nArifmetik amal Nam
 lang_ru['cos'] = "cos"
 lang_uz['cos'] = "cos"
 
+lang_ru['sin'] = "sin"
+lang_uz['sin'] = "sin"
+
+lang_ru['tg'] = "tg"
+lang_uz['tg'] = "tg"
+
+lang_ru['ctg'] = "ctg"
+lang_uz['ctg'] = "ctg"
+
+
 lang_ru['error_exp'] = "Ошибка в выражении"
 lang_uz['error_exp'] = "Ifodada xatolik"
 
@@ -76,8 +86,29 @@ lang_uz['trig_mod'] = '`Trigonometriya rejimidasiz`'
 lang_ru['error_cos'] = "Ошибка в выражении"
 lang_uz['error_cos'] = "Ifodada xatolik"
 
-lang_ru['example_cos'] = "Пример: 10, 3.5, 3.1415926"
-lang_uz['example_cos'] = "Namuna: 10, 3.5, 3.1415926"
+lang_ru['error_sin'] = "Ошибка в выражении"
+lang_uz['error_sin'] = "Ifodada xatolik"
+
+lang_ru['error_tg'] = "Ошибка в выражении"
+lang_uz['error_tg'] = "Ifodada xatolik"
+
+
+lang_ru['error_ctg'] = "Ошибка в выражении"
+lang_uz['error_ctg'] = "Ifodada xatolik"
+
+
+lang_ru['example_cos'] = "Пример:\n*Целые числа:* 2, 0, -5, 1\n*Дробные числа:* -1.5, 3.4, 5.5, 0.25\n*Радианы:* 3.1415926"
+lang_uz['example_cos'] = "Namuna:\n*Butun sonlar:* 2, 0, -5, 1\n*Kasir sonlar:* -1.5, 3.4, 5.5, 0.25\n*Radianlar:* 3.1415926"
+
+lang_ru['example_sin'] = "Пример:\n*Целые числа:* 1, -3, 0, 2\n*Дробные числа:* -0.5, 1.7, -15.5, 0.25\n*Радианы:* 6.2831852"
+lang_uz['example_sin'] = "Namuna:\n*Butun sonlar:* 1, -3, 0, 2\n*Kasir sonlar:* -0.5, 1.7, -15.5, 0.25\n*Radianlar:* 6.2831852"
+
+lang_ru['example_tg'] = "Пример:\n*Целые числа:* 3, 10, 0, 1\n*Дробные числа:* -1.7, 7.2, 1.3, -0.5\n*Радианы:* 1.5707963"
+lang_uz['example_tg'] = "Namuna:\n*Butun sonlar:* 3, 10, 0, 1\n*Kasir sonlar:* -1.7, 7.2, 1.3, -0.5\n*Radianlar:* 1.5707963"
+
+lang_ru['example_ctg'] = "Пример:\n*Целые числа:* 5, 1, -3, 16\n*Дробные числа:* 1.5, 6.2, 15.5, 0.75\n*Радианы:* 0.78539815"
+lang_uz['example_ctg'] = "Namuna:\n*Butun sonlar:* 5, 1, -3, 16\n*Kasir sonlar:* 1.5, 6.2, 15.5, 0.75\n*Radianlar:* 0.78539815"
+
 
 lang_ru['square'] = 'Квадратное уравнение'
 lang_uz['square'] = 'Kvadrat tenglama'

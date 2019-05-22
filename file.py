@@ -50,7 +50,7 @@ def name(m):
     elif m.text == gettr(m.chat.id, 'trigonometry'):
         bot.send_message(m.chat.id, gettr(m.chat.id, 'trig_mod'), parse_mode= 'Markdown', reply_markup=markup)
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-        keyboard.add(*[types.KeyboardButton(name) for name in [gettr(m.chat.id, 'cos')]])
+        keyboard.add(*[types.KeyboardButton(name) for name in [gettr(m.chat.id, 'cos'), gettr(m.chat.id, 'sin'), gettr(m.chat.id, 'tg'), gettr(m.chat.id, 'ctg')]])
         msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'trig_ae'), reply_markup=keyboard)
         bot.register_next_step_handler(msg, trig)
     elif m.text == gettr(m.chat.id, 'square'):
@@ -339,12 +339,52 @@ def sinFoo(m):
     msg = bot.send_message(m.chat.id, d)
     bot.register_next_step_handler(msg, sinFoo)
 
+#tg Функция
+def tgFoo(m):
+    if m.text == gettr(m.chat.id, 'back'):
+        send_text(m)
+        return
+    try:
+        d = math.tg(float(m.text))
+    except:
+        d = gettr(m.chat.id, 'error_tg')
+        msg = bot.send_message(m.chat.id, d)
+        bot.register_next_step_handler(msg, tgFoo)
+
+#ctg Функция
+def ctgFoo(m):
+    if m.text == gettr(m.chat.id, 'back'):
+        send_text(m)
+        return
+    try:
+        d = math.ctg(float(m.text))
+    except:
+        d = gettr(m.chat.id, 'error_ctg')
+        msg = bot.send_message(m.chat.id, d)
+        bot.register_next_step_handler(msg, ctgFoo)
+
+
 def trig(m):
     if m.text == gettr(m.chat.id, 'cos'):
         keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
         keyboard.add(*[types.KeyboardButton(name) for name in [gettr(m.chat.id, 'back')]])
         msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'example_cos'), parse_mode='Markdown', reply_markup=keyboard)
         bot.register_next_step_handler(msg, cosFoo)
+    elif m.text == gettr(m.chat.id, 'sin'):
+        keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        keyboard.add(*[types.KeyboardButton(name) for name in [gettr(m.chat.id, 'back')]])
+        msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'example_sin'), parse_mode='Markdown', reply_markup=keyboard)
+        bot.register_next_step_handler(msg, sinFoo)
+    elif m.text == gettr(m.chat.id, 'tg'):
+        keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        keyboard.add(*[types.KeyboardButton(name) for name in [gettr(m.chat.id, 'back')]])
+        msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'example_tg'), parse_mode='Markdown', reply_markup=keyboard)
+        bot.register_next_step_handler(msg, tgFoo)
+    elif m.text == gettr(m.chat.id, 'ctg'):
+        keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        keyboard.add(*[types.KeyboardButton(name) for name in [gettr(m.chat.id, 'back')]])
+        msg = bot.send_message(m.chat.id, gettr(m.chat.id, 'example_ctg'), parse_mode='Markdown', reply_markup=keyboard)
+        bot.register_next_step_handler(msg, sinFoo)
 
 
 
